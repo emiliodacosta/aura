@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  name             String @id
+  firstName         String @map("first_name")
+  age              Int
+  height           Int
+  weight           Int
+  gender           String
+  medications      String
+  bodyTemperatures String @map("body_temperatures")
+
+  @@map("patient")
+}
